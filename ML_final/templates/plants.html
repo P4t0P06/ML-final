@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Your Plants</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Add Plant</button>
+</form>
+<ul>
+    {% for plant in plants %}
+        <li>{{ plant.name }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
